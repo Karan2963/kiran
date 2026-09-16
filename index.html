@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kiran's mathematics student portfolio.">
+    <title>Kiran | Mathematics Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink: #202a2e; --muted: #667174; --paper: #f4f0e8; --cream: #fffdf8; --coral: #f06b4f; --sage: #b8c7a1; --line: rgba(32, 42, 46, 0.16); --shadow: 0 20px 50px rgba(32, 42, 46, 0.12); }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Space Grotesk", sans-serif; line-height: 1.5; }
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; }
+        .shell { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid var(--line); }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -0.04em; }
+        .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; background: var(--coral); color: var(--cream); font-family: "DM Mono", monospace; font-size: 14px; transform: rotate(-6deg); }
+        nav { display: flex; gap: 30px; color: var(--muted); font-size: 14px; }
+        nav a { transition: color 180ms ease; }
+        nav a:hover, nav a:focus-visible { color: var(--coral); }
+        .menu-button { display: none; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 24px; }
+        .hero { min-height: 600px; display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 64px; padding: 76px 0 94px; }
+        .eyebrow, .kicker { color: var(--coral); font-family: "DM Mono", monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+        h1 { max-width: 680px; margin: 15px 0 22px; font-size: clamp(3.5rem, 8vw, 7.4rem); line-height: 0.9; letter-spacing: -0.085em; }
+        h1 em { color: var(--coral); font-style: normal; }
+        .hero-copy { max-width: 490px; color: var(--muted); font-size: 18px; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+        .button { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--ink); padding: 13px 18px; font-size: 14px; font-weight: 600; transition: transform 180ms ease, background 180ms ease, color 180ms ease; }
+        .button:hover, .button:focus-visible { transform: translateY(-3px); }
+        .button.primary { background: var(--ink); color: var(--cream); }
+        .button.primary:hover, .button.primary:focus-visible { background: var(--coral); border-color: var(--coral); }
+        .math-poster { position: relative; min-height: 435px; display: grid; place-items: center; overflow: hidden; background: var(--sage); box-shadow: var(--shadow); }
+        .math-poster::before { content: ""; position: absolute; inset: 0; opacity: 0.33; background-image: linear-gradient(rgba(32,42,46,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(32,42,46,.2) 1px, transparent 1px); background-size: 34px 34px; }
+        .math-poster::after { content: ""; position: absolute; width: 220px; height: 220px; border: 2px solid var(--ink); border-radius: 50%; transform: translate(78px, -94px); }
+        .formula { position: relative; z-index: 1; width: 82%; padding: 32px 28px; border: 1px solid var(--ink); background: rgba(255, 253, 248, .82); font-family: "DM Mono", monospace; box-shadow: 15px 15px 0 rgba(32,42,46,.92); }
+        .formula .big { display: block; margin: 12px 0 20px; font-family: "Space Grotesk", sans-serif; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1; letter-spacing: -0.08em; }
+        .formula .note { color: var(--coral); font-size: 13px; }
+        section { padding: 92px 0; border-top: 1px solid var(--line); }
+        .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 42px; }
+        h2 { margin: 8px 0 0; font-size: clamp(2rem, 4vw, 3.6rem); line-height: 0.98; letter-spacing: -0.065em; }
+        .section-intro { max-width: 320px; color: var(--muted); font-size: 15px; }
+        .study-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+        .study-card { min-height: 230px; padding: 24px 20px 26px 0; border-right: 1px solid var(--line); }
+        .study-card + .study-card { padding-left: 24px; }
+        .study-card:last-child { border-right: 0; }
+        .study-number { color: var(--coral); font-family: "DM Mono", monospace; font-size: 13px; }
+        h3 { margin: 34px 0 10px; font-size: 23px; letter-spacing: -0.04em; }
+        .study-card p, .work-card p { margin: 0; color: var(--muted); font-size: 14px; }
+        .work-list { display: grid; gap: 14px; }
+        .work-card { display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 30px; padding: 22px 0; border-top: 1px solid var(--line); }
+        .work-card:last-child { border-bottom: 1px solid var(--line); }
+        .work-symbol { display: grid; place-items: center; aspect-ratio: 1; background: var(--ink); color: var(--cream); font-family: "DM Mono", monospace; font-size: 24px; }
+        .work-card h3 { margin: 0 0 4px; font-size: 20px; }
+        .arrow { color: var(--coral); font-size: 26px; }
+        .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; padding-bottom: 110px; }
+        .contact h2 { max-width: 550px; }
+        .contact-copy { max-width: 360px; color: var(--muted); }
+        .email-link { display: inline-block; margin-top: 22px; border-bottom: 2px solid var(--coral); font-family: "DM Mono", monospace; font-size: 14px; }
+        footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-family: "DM Mono", monospace; font-size: 11px; text-transform: uppercase; }
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 700ms ease, transform 700ms ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        @media (max-width: 760px) {
+            .shell { width: min(100% - 32px, 560px); }
+            header { padding: 20px 0; }
+            nav { display: none; position: absolute; top: 70px; left: 16px; right: 16px; z-index: 4; flex-direction: column; gap: 0; padding: 8px 18px; background: var(--cream); border: 1px solid var(--ink); box-shadow: 6px 6px 0 var(--coral); }
+            nav.open { display: flex; }
+            nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+            nav a:last-child { border: 0; }
+            .menu-button { display: block; }
+            .hero { display: block; padding: 66px 0 78px; }
+            h1 { font-size: clamp(3.4rem, 18vw, 6rem); }
+            .hero-copy { font-size: 16px; }
+            .math-poster { min-height: 320px; margin-top: 54px; }
+            section { padding: 70px 0; }
+            .section-heading, .contact { display: block; }
+            .section-intro { margin-top: 20px; }
+            .study-grid { display: block; }
+            .study-card, .study-card + .study-card { min-height: auto; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+            .study-card:last-child { border-bottom: 0; }
+            h3 { margin-top: 22px; }
+            .work-card { grid-template-columns: 72px 1fr; gap: 16px; }
+            .work-card .arrow { grid-column: 2; grid-row: 1; justify-self: end; }
+            .contact-copy { margin-top: 22px; }
+            footer { display: block; line-height: 2; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header>
+            <a class="brand" href="#top" aria-label="Kiran home"><span class="brand-mark">K</span><span>Kiran / 24</span></a>
+            <button class="menu-button" type="button" aria-label="Toggle navigation" aria-expanded="false">+</button>
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a><a href="#studies">Studies</a><a href="#work">Work</a><a href="#contact">Contact</a>
+            </nav>
+        </header>
+        <main id="top">
+            <section class="hero" id="about">
+                <div class="reveal"><div class="eyebrow">Mathematics student / curious mind</div><h1>Finding the <em>shape</em> of ideas.</h1><p class="hero-copy">Hi, I’m Kiran. I study mathematics and enjoy turning complicated questions into clear, elegant solutions.</p><div class="hero-actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a><a class="button" href="#contact">Say hello</a></div></div>
+                <div class="math-poster reveal" aria-label="A mathematical formula poster"><div class="formula"><span>01 — A SMALL REMINDER</span><span class="big">e<sup>iπ</sup> + 1 = 0</span><span class="note">beautifully connected, endlessly useful.</span></div></div>
+            </section>
+            <section id="studies"><div class="section-heading reveal"><div><div class="kicker">01 / What keeps me curious</div><h2>Study the<br>structure.</h2></div><p class="section-intro">The best part of mathematics is seeing one idea appear in completely different places.</p></div><div class="study-grid reveal"><article class="study-card"><div class="study-number">01</div><h3>Algebra</h3><p>Patterns, proof, and the satisfying logic of a well-formed system.</p></article><article class="study-card"><div class="study-number">02</div><h3>Calculus</h3><p>Understanding change, motion, and the tiny moments that make a whole.</p></article><article class="study-card"><div class="study-number">03</div><h3>Statistics</h3><p>Finding signal in data and asking better questions of the evidence.</p></article></div></section>
+            <section id="work"><div class="section-heading reveal"><div><div class="kicker">02 / Selected explorations</div><h2>Thinking,<br>made visible.</h2></div><p class="section-intro">A few places where I’ve taken a question and followed it somewhere interesting.</p></div><div class="work-list reveal"><article class="work-card"><div class="work-symbol">∑</div><div><h3>The language of infinity</h3><p>A visual essay on sequences, limits, and what “forever” can mean.</p></div><span class="arrow" aria-hidden="true">↗</span></article><article class="work-card"><div class="work-symbol">π</div><div><h3>Patterns in the everyday</h3><p>Mapping the quiet mathematics hiding in music, architecture, and nature.</p></div><span class="arrow" aria-hidden="true">↗</span></article><article class="work-card"><div class="work-symbol">∫</div><div><h3>Learning out loud</h3><p>Notes and simple explanations from my current mathematics journey.</p></div><span class="arrow" aria-hidden="true">↗</span></article></div></section>
+            <section class="contact" id="contact"><div class="reveal"><div class="kicker">03 / Let’s connect</div><h2>Have a good question?</h2></div><div class="contact-copy reveal"><p>I’m always happy to talk about mathematics, learning, or an interesting problem that refuses to be ignored.</p><a class="email-link" href="mailto:kiran.math@example.com">kiran.math@example.com ↗</a></div></section>
+        </main>
+        <footer><span>© <span id="year"></span> Kiran</span><span>Made with curiosity + coffee</span></footer>
+    </div>
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const nav = document.querySelector('nav');
+        const year = document.querySelector('#year');
+        year.textContent = new Date().getFullYear();
+        menuButton.addEventListener('click', () => { const isOpen = nav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', isOpen); menuButton.textContent = isOpen ? '×' : '+'; });
+        nav.querySelectorAll('a').forEach((link) => { link.addEventListener('click', () => { nav.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.textContent = '+'; }); });
+        const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
+</body>
+</html>
